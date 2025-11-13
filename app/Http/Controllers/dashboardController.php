@@ -16,11 +16,6 @@ class dashboardController extends Controller
         $dataLogin = Auth::user();
         $data = User::with('storage.barang')->where('id', $dataLogin->id)->first();
 
-        $barang = [];
-        foreach ($data->storage as $key => $value) {
-            $barang[] = $value->barang; 
-        }
-
         $totalBerat = 0;
         foreach ($data->storage as $key => $value) {
             foreach ($value->barang as $nilai) {
@@ -54,6 +49,12 @@ class dashboardController extends Controller
         foreach ($data->storage as $key => $value) {
             $rak[] = $value;
         }
+
+        $barang = [];
+        foreach ($data->storage as $key => $value) {
+            $barang[] = $value->barang;
+        }
+
         return view('user.dashboard', compact('data', 'totalBerat', 'kapasitas', 'rakCount', 'beratCount', 'barang'));
     }
 

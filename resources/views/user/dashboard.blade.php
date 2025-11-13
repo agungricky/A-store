@@ -142,51 +142,45 @@
                         <div class="app-content pt-3 p-md-3 p-lg-4">
 
                             <div class="row g-5">
-                                @foreach ($barang as $key => $item)
-                                    @if ($item->isNotEmpty())
+                                @forelse ($barang as $collection)
+                                    @if ($collection->isNotEmpty())
+                                        @php $item = $collection->first(); @endphp
                                         <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-4">
                                             <div
                                                 class="card border-0 shadow-sm h-100 position-relative overflow-hidden rounded-4">
-
                                                 <div class="p-3 position-relative">
-                                                    <img src="{{ asset('storage/' . $item[$key]->foto) }}"
-                                                        alt="Foto Barang"
+                                                    <img src="{{ asset('storage/' . $item->foto) }}" alt="Foto Barang"
                                                         class="img-fluid rounded-3 w-100 object-fit-cover"
                                                         style="height: 160px; object-fit: cover;">
                                                 </div>
-
                                                 <div class="card-body px-3 pt-2 pb-3">
                                                     <h6 class="card-title mb-1 fw-semibold text-truncate">
                                                         <div class="text-dark text-decoration-none">
-                                                            {{ $item[$key]->nama_barang ?? 'Tanpa Nama' }}</div>
+                                                            {{ $item->nama_barang ?? 'Tanpa Nama' }}
+                                                        </div>
                                                     </h6>
                                                     <ul class="list-unstyled small text-muted mb-0">
                                                         <li><span class="fw-semibold">Berat :</span>
-                                                            {{ $item[$key]->berat ?? 'N/A' }} Kg</li>
+                                                            {{ $item->berat ?? 'N/A' }} Kg</li>
                                                         <li><span class="fw-semibold">Keterangan :</span>
-                                                            {{ $item[$key]->keterangan ?? 'Tidak Diketahui' }}</li>
-                                                        <li>
-                                                            <span class="fw-semibold">Tercatat :</span>
-                                                            {{ $item[$key]->created_at ? $item[$key]->created_at->format('d M Y') : 'Baru saja' }}
+                                                            {{ $item->keterangan ?? 'Tidak Diketahui' }}</li>
+                                                        <li><span class="fw-semibold">Tercatat :</span>
+                                                            {{ $item->created_at ? $item->created_at->format('d M Y') : 'Baru saja' }}
                                                         </li>
-
                                                     </ul>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    @else
-                                        <div class="flex justify-center items-center w-full h-72">
-                                            <h4 class="text-center text-gray-400">Tidak ada data barang</h4>
-                                        </div>
                                     @endif
-                                @endforeach
+                                @empty
+                                    <div class="flex justify-center items-center w-full h-72">
+                                        <h4 class="text-center text-gray-400">Tidak ada data barang</h4>
+                                    </div>
+                                @endforelse
                             </div>
+
+
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
