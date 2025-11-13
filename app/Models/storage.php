@@ -21,7 +21,7 @@ class storage extends Model
 
     public function icon()
     {
-        return $this->belongsTo(Icon::class);
+        return $this->belongsTo(icon::class);
     }
 
     public function barang()
