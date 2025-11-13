@@ -1,0 +1,92 @@
+.no-scroll {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.no-scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.hover-scroll-y {
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer & Edge lama */
+}
+
+.hover-scroll-y::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.shadow-bottom-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn svg path {
+    fill: #7E8299;
+}
+
+.btn:hover svg path {
+    fill: #ffffff;
+}
+
+.dt-search label,
+.dt-input {
+    margin-right: 5px;
+}
+
+.dt-info {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.dt-paging nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.dt-paging-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 5px 12px;
+    margin: 0 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.dt-paging-button:hover:not(.disabled) {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.dt-paging-button.current {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    pointer-events: none;
+}
+
+.dt-paging-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dt-paging-button.first,
+.dt-paging-button.previous,
+.dt-paging-button.next,
+.dt-paging-button.last {
+    font-weight: bold;
+}
