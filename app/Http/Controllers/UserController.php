@@ -159,7 +159,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'User berhasil dihapus.');
     }
 
     public function downloadQrCode($id)
